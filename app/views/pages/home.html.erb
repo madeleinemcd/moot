@@ -3,7 +3,7 @@
     <h1><strong>REVIEWS FOR GOOD</strong></h1>
     <p>This is fun little place for Kemo and Madeleine to write about filmmmmmm</p>
       <div class="search-form-control form-group mt-10 justify-content-left" >
-          <%= form_with url: experiences_path, method: :get, class: "d-flex" do %>
+          <%= form_with url: reviews_path, method: :get, class: "d-flex" do %>
           <%= text_field_tag :query,
             params[:query],
             class: "form-control",
@@ -15,11 +15,9 @@
   </div>
 </div>
 
-# take the css from abracadabra and make a partial for review
-
 <div class="container bg-card text-center mt-5">
 
     <div class="cards">
-      <%= render "experience" %>
+      <%= render "reviews/index" %>
     </div>
 </div>

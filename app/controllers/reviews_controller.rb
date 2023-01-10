@@ -1,7 +1,26 @@
 class ReviewsController < ApplicationController
   # before_action :set_review, only: [:show, :edit, :update, :destroy]
-
+  skip_before_action :authenticate_user!, only: [:index, :show]
   # before_action :set_comments, only: [:new, :create]
+
+  def index
+    if params[:query].present?
+      sql_query = <<~SQL
+        review.title @@ :query
+        OR review.city @@ :query
+        OR review.category @@ :query
+        OR review.duration @@ :query
+      SQL
+      @reviews = Review.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @reviews = Review.all.recent
+    end
+  end
+
+  def show
+    @review = Review.friendly.find(params[:id])
+    @comments = Comment.all.where(review_id: @review.id)
+  end
 
   def new
     @review = Review.new
@@ -18,6 +37,7 @@ class ReviewsController < ApplicationController
   end
 
   def edit
+    @review = Review.find(params[:id])
   end
 
   def update
