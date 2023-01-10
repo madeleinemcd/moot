@@ -6,4 +6,14 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+
+  # resources :conversations, only: [:create, :show, :index] do
+  #   resources :messages, only: :create
+  # end
+
+  # Defines the root path route ("/")
+  # root "articles#index"
+  resources :reviews, except: [:destroy] do
+    resources :comments, only: [:new, :create, :destroy]
+  end
 end

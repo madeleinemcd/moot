@@ -5,6 +5,9 @@ ruby "3.1.2"
 
 gem 'nokogiri', '~> 1.6', '>= 1.6.8'
 
+#friendly id
+gem 'friendly_id', '~> 5.4.0'
+
 gem "devise"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.4"

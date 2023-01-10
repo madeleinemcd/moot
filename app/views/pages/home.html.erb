@@ -1,2 +1,23 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://s3.amazonaws.com/criterion-production/editorial_content_posts/hero/1621-/AzEpyqiTYLFnjABk2dtCFIZJqFKN69_medium.jpg);">
+  <div class="container">
+    <h1><strong>REVIEWS FOR GOOD</strong></h1>
+    <p>This is fun little place for Kemo and Madeleine to write about filmmmmmm</p>
+      <div class="search-form-control form-group mt-10 justify-content-left" >
+          <%= form_with url: reviews_path, method: :get, class: "d-flex" do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "find a review"
+          %>
+          <%= submit_tag "Search", class: "btn btn-secondary" %>
+          <% end %>
+      </div>
+  </div>
+</div>
+
+<div class="container bg-card text-center mt-5">
+
+    <div class="cards">
+      <%= render "reviews/index" %>
+    </div>
+</div>
