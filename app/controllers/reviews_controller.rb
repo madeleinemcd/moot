@@ -19,7 +19,7 @@ class ReviewsController < ApplicationController
 
   def show
     @review = Review.friendly.find(params[:id])
-    @comments = Comment.all.where(review_id: @review.id)
+    @comments = Comment.all.where(review_id: @review.id).order(created_at: :desc)
   end
 
   def new
@@ -37,7 +37,7 @@ class ReviewsController < ApplicationController
   end
 
   def edit
-    @review = Review.find(params[:id])
+    @review = Review.friendly.find(params[:id])
   end
 
   def update
