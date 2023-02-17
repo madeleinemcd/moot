@@ -4,11 +4,14 @@ class CommentsController < ApplicationController
   end
 
   def show
-
+    @comments = Comment.all.where(review_id: @review.id).order(created_at: :desc)
   end
 
   def new
     @comment = Comment.new
+    @comments = Comment.all.where(review_id: @review.id).order(created_at: :desc)
+    @review = Review.friendly.find(params[:id])
+    @review_id = @review.id
   end
 
   def create

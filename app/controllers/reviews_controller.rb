@@ -7,9 +7,10 @@ class ReviewsController < ApplicationController
     if params[:query].present?
       sql_query = <<~SQL
         review.title @@ :query
-        OR review.city @@ :query
+        OR review.content @@ :query
         OR review.category @@ :query
-        OR review.duration @@ :query
+        OR review.subtitle @@ :query
+        OR review.subtitle @@ :query
       SQL
       @reviews = Review.where(sql_query, query: "%#{params[:query]}%")
     else
@@ -19,7 +20,10 @@ class ReviewsController < ApplicationController
 
   def show
     @review = Review.friendly.find(params[:id])
+    @comment = @review.comments.build
     @comments = Comment.all.where(review_id: @review.id).order(created_at: :desc)
+    # record = relation.first
+    # key = record.to_key
   end
 
   def new
