@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  skip_before_action :authenticate_user!
+
   def index
     @comment = Comment.new
   end
@@ -8,18 +10,26 @@ class CommentsController < ApplicationController
   end
 
   def new
-    @comment = Comment.new
+    @comment = Comment.new(comment_params)
     @comments = Comment.all.where(review_id: @review.id).order(created_at: :desc)
     @review = Review.friendly.find(params[:id])
     @review_id = @review.id
+    @comment.save
   end
 
   def create
-    @comment = Comment.new(comment_params)
-  if @comment.save
-    redirect_to review_path(@review)
-  else
-    render :new, status: :unprocessable_entity
+  #   @comment = Comment.new(comment_params)
+  # if @comment.save
+  #   redirect_to review_path(@review)
+  # else
+  # #   render :new, status: :unprocessable_entity
+  # end
+    @review = Review.find(params[:review_id])
+    @comment = @review.comments.create(comment_params)
+    respond_to do |format|
+      format.html { redirect_to @review }
+      format.js
+    end
   end
 
   private

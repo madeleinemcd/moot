@@ -5,7 +5,7 @@ body {
 }
 
 .topnav {
-  background-color: $black;
+  background-color: $lack;
   overflow: hidden;
 }
 
@@ -13,7 +13,7 @@ body {
 .topnav a {
   float: left;
   display: block;
-  color: $white;
+  color: $hite;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -22,14 +22,14 @@ body {
 
 /* Change the color of links on hover */
 .topnav a:hover {
-  background-color: $brown;
-  color: $black;
+  background-color: $mid;
+  color: $lack;
 }
 
 /* Add an active class to highlight the current page */
 .topnav a.active {
-  background-color: $blood;
-  color: $white;
+  background-color: $ray;
+  color: $hite;
 }
 
 /* Hide the link that should open and close the topnav on small screens */

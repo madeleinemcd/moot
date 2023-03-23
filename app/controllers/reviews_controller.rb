@@ -33,10 +33,18 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @review.comment = @comment
-    if @review.save
-      redirect_to review_path(@review)
-    else
-      render :new, status: :unprocessable_entity
+      if @review.save
+        redirect_to review_path(@review)
+      else
+        render :new, status: :unprocessable_entity
+      end
+    respond_to do |format|
+      if @comment.save
+        format.html { redirect_to @review }
+        format.js
+      else
+        format.html { render 'reviews/show' }
+      end
     end
   end
 

@@ -9,9 +9,11 @@
   </head>
   <body>
 
+
     <div class="topnav" id="myTopnav">
-      <%= link_to "Home", root_path, class: "nav-link active" %>
-      <%= link_to "About", about_path, class: "nav-link" %>
+      <%= link_to "Home", root_path, class: "nav-link#{' active' if current_page?(root_path)}" %>
+      <%= link_to "About", about_path, class: "nav-link#{' active' if current_page?(about_path)}" %>
+      <%= link_to "Contact", contact_path, class: "nav-link#{' active' if current_page?(contact_path)}" %>
       <a href="javascript:void(0);" class="icon" onclick="myFunction()">
         <i class="fa fa-bars"></i>
       </a>
@@ -22,7 +24,7 @@
     function myFunction() {
       var x = document.getElementById("myTopnav");
       if (x.className === "topnav") {
-        x.className += " responsive";
+        x.className += "responsive";
       } else {
         x.className = "topnav";
       }
