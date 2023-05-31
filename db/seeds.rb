@@ -38,11 +38,11 @@ puts "#{dummy_data1.id} was created"
 
 
 
-comments = Comment.create!(content: "damn you're a great writer",
-                            c_nickname: "bobbyboy1",
+comments = Comment.create!(content: "cool review",
+                            c_nickname: "jane398",
                             review: dummy_data)
 
 
-comments2 = Comment.create!(content: "I love this show",
-                            c_nickname: "yoboysno",
+comments2 = Comment.create!(content: "I love this show!",
+                            c_nickname: "filmboy2",
                             review: dummy_data)

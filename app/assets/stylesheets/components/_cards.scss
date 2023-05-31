@@ -1,6 +1,6 @@
 
 .bg-card {
-  background-color: $light-gray;
+  background-color: $l-white;
   padding: 12px;
 }
 
@@ -16,6 +16,12 @@
   grid-gap: 16px;
   padding: 16px;
 }
+
+.index-card {
+  text-decoration:none;
+}
+
+
 
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {

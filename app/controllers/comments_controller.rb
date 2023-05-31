@@ -18,13 +18,7 @@ class CommentsController < ApplicationController
   end
 
   def create
-  #   @comment = Comment.new(comment_params)
-  # if @comment.save
-  #   redirect_to review_path(@review)
-  # else
-  # #   render :new, status: :unprocessable_entity
-  # end
-    @review = Review.find(params[:review_id])
+    @review = Review.friendly.find(params[:review_id])
     @comment = @review.comments.create(comment_params)
     respond_to do |format|
       format.html { redirect_to @review }

@@ -1,17 +1,22 @@
 <div class="container">
-    <%= link_to "<- browse all reviews", root_path, class: "nav-link active" %>
-    <%= link_to "next review", review_path, class: "nav-link active" %>
-   <div class="container">
-      <div class="col-sm-6 p-0" style="height: 80vh">
+    <div><%= link_to "<- browse all reviews", root_path, class: "nav-link active" %></div>
+    <div><%= link_to "next review", review_path, class: "nav-link active" %></div>
+    <div class="container-fluid">
         <div class="card h-100">
-          <h2 class="card-header"><p> <%= @review.title %> </h2>
+          <div class="card bg-dark bg-opacity-25 text-white">
+           <%=image_tag src="poster", class:"card-img", alt: "generic movie poster", height: 300, width: 200 %>
+            <div class="card-img-overlay">
+              <h2 class="card-header"><%= @review.title %></h2>
+              <h5 class="card-title"><%= @review.subtitle %></h5>
+            </div>
+          </div>
           <div class="card-body">
-            <h5 class="card-title"></p><%= @review.subtitle %></h5>
             <p class="card-text">
               <%= @review.category %>
               <p><%= @review.content %></p>
-              </p>
+            </p>
               <br>
+           <div class="card-footer bg-transparent border-success">
               <p><% @comments.each do |comment| %>
                 <%= comment.content %>
                 <br>
@@ -19,20 +24,19 @@
                 <%= comment.created_at %>
                 <% end %>
               </p>
-                <div class="container" style="margin-top: 5px; margin-bottom: 5px; padding-top: 10px;">
                   <%# <%= simple_form_for [@review, @comment] do |f| %>
                   <%= simple_form_for [@review, @review.comments.new], remote: true do |f| %>
-                  <div class="form-inputs">
-                  <%= f.input :content, label: 'your high falooting thoughts', error: 'cant think without thoughts, pal' %>
-                  <%= f.input :c_nickname, hint: 'how you want to be known', placeholder: 'badboy41'%>
+                <div class="form-inputs">
+                  <%= f.input :content, label: 'your thoughts'%>
+                  <%= f.input :c_nickname, label: 'your nickname', placeholder: 'johndoe3'%>
+                  <div class="form-actions m-3 p-2">
+                    <%= f.button :submit, class: "button-80"%>
+                  </div>
+                  <% end %>
                 </div>
-               <div class="form-actions m-3 p-2">
-                  <%= f.button :submit, class: "btn btn-default" %>
-                </div>
-                <% end %>
-                </div>
+            </div>
                 <br>
           </div>
         </div>
-      </div>
+    </div>
 </div>

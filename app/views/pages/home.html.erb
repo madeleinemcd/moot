@@ -1,9 +1,9 @@
-<div class="hbanner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://s3.amazonaws.com/criterion-production/editorial_content_posts/hero/1621-/AzEpyqiTYLFnjABk2dtCFIZJqFKN69_medium.jpg);">
+<div class="hbanner" style="background: linear-gradient(115deg, #F9F8F0, #FFD700)">
   <div class="container">
     <div class="d-flex justify-content-left">
-          <p>This is fun little place for Kemo and Madeleine to write about filmmmmmm</p>
+          <p>This is place to write about film</p>
     </div>
-    <div class="search-form-control form-group mt-10 justify-content-left" >
+    <div class="search-form-control form-group mt-10 justify-content-left mb-4" >
       <%= form_with url: reviews_path, method: :get, class: "d-flex" do %>
       <%= text_field_tag :query,
         params[:query],
