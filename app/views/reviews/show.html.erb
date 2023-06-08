@@ -16,24 +16,30 @@
               <p><%= @review.content %></p>
             </p>
               <br>
-           <div class="card-footer bg-transparent border-success">
-              <p><% @comments.each do |comment| %>
-                <%= comment.content %>
-                <br>
-                <%= comment.c_nickname %>
-                <%= comment.created_at %>
-                <% end %>
-              </p>
-                  <%# <%= simple_form_for [@review, @comment] do |f| %>
-                  <%= simple_form_for [@review, @review.comments.new], remote: true do |f| %>
-                <div class="form-inputs">
-                  <%= f.input :content, label: 'your thoughts'%>
-                  <%= f.input :c_nickname, label: 'your nickname', placeholder: 'johndoe3'%>
-                  <div class="form-actions m-3 p-2">
-                    <%= f.button :submit, class: "button-80"%>
-                  </div>
+           <div class="card-footer">
+            <div class="comment-box">
+                <p>Comments</p>
+                <p><% @comments.each do |comment| %>
+                  <%= comment.content %>
+                  <br>
+                  <%= comment.c_nickname %>
+                  <%= comment.created_at %>
                   <% end %>
-                </div>
+                </p>
+              </div>
+              <div class="comment-box">
+                <p>Leave a comment on this review</p>
+                    <%# <%= simple_form_for [@review, @comment] do |f| %>
+                    <%= simple_form_for [@review, @review.comments.new], remote: true do |f| %>
+                  <div class="form-inputs">
+                    <%= f.input :content, label: 'your thoughts'%>
+                    <%= f.input :c_nickname, label: 'your nickname', placeholder: 'johndoe3'%>
+                    <div class="form-actions m-3 p-2">
+                      <%= f.button :submit, class: "button-80"%>
+                    </div>
+                    <% end %>
+                  </div>
+              </div>
             </div>
                 <br>
           </div>

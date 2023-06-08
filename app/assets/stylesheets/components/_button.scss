@@ -46,39 +46,51 @@
   transform: translateY(.125rem);
 }
 
+//button 81
 
-
-/* CSS */
-.button-39 {
-  background-color: #FFFFFF;
-  border: 1px solid rgb(209,213,219);
-  border-radius: .5rem;
-  box-sizing: border-box;
-  color: #111827;
-  font-family: "Inter var",ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
-  font-size: .875rem;
-  font-weight: 600;
-  line-height: 1.25rem;
-  padding: .75rem 1rem;
-  text-align: center;
-  text-decoration: none #D1D5DB solid;
-  text-decoration-thickness: auto;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  cursor: pointer;
-  user-select: none;
-  -webkit-user-select: none;
+.button-81 {
+  background-color: $l-gold;
+  border: 2px solid $gold;
+  color: $black;
+  padding: 12px 30px;
+  right: 20px;
+  // text-align: center;
+  text-decoration: none;
+  font-size: 16px;
   touch-action: manipulation;
 }
 
-.button-39:hover {
-  background-color: rgb(249,250,251);
+.button-81:not(:disabled):hover {
+  transform: scale(1.05);
+  background-color: $gold;
 }
 
-.button-39:focus {
-  outline: 2px solid transparent;
-  outline-offset: 2px;
+.button-81:not(:disabled):hover:active {
+  transform: scale(1.05) translateY(.125rem);
 }
 
-.button-39:focus-visible {
-  box-shadow: none;
+.button-81:focus {
+  outline: 0 solid transparent;
+}
+
+.button-81:focus:before {
+  content: "";
+  left: calc(-1*.375rem);
+  pointer-events: none;
+  position: absolute;
+  top: calc(-1*.375rem);
+  transition: border-radius;
+  user-select: none;
+}
+
+.button-81:focus:not(:focus-visible) {
+  outline: 0 solid transparent;
+}
+
+.button-81:focus:not(:focus-visible):before {
+  border-width: 0;
+}
+
+.button-81:not(:disabled):active {
+  transform: translateY(.125rem);
 }

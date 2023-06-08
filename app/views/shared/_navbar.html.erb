@@ -8,28 +8,25 @@
     </style>
   </head>
   <body>
-
-
     <div class="topnav" id="myTopnav">
       <%= link_to "Home", root_path, class: "nav-link#{' active' if current_page?(root_path)}" %>
       <%= link_to "About", about_path, class: "nav-link#{' active' if current_page?(about_path)}" %>
       <%= link_to "Contact", contact_path, class: "nav-link#{' active' if current_page?(contact_path)}" %>
-      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+      <div class="search-function">
+        <div class="input-box form-group justify-content-left" >
+            <%= form_with url: reviews_path, method: :get, class: "d-flex" do %>
+            <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "find a review"
+            %>
+            <%= submit_tag "Search", class: "btn button-80" %>
+            <% end %>
+        </div>
+      </div>
+      <a href="javascript:void(0);" class="icon" onclick="responsiveMenu()">
         <i class="fa fa-bars"></i>
       </a>
     </div>
-
-
-    <script>
-    function myFunction() {
-      var x = document.getElementById("myTopnav");
-      if (x.className === "topnav") {
-        x.className += "responsive";
-      } else {
-        x.className = "topnav";
-      }
-    }
-    </script>
-
   </body>
 </html>
