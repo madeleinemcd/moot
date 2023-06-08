@@ -1,23 +1,23 @@
-<div class="hbanner" style="background: linear-gradient(115deg, #F9F8F0, #FFD700)">
-  <div class="container">
-    <div class="d-flex justify-content-left">
-          <p>This is place to write about film</p>
+<%# <div class=container-fluid> %>
+  <div class="hbanner" style="background: linear-gradient(115deg, #F9F8F0, #FFD700)">
+    <div class="container-fluid">
+      <div class="d-flex justify-content-left">
+            <p>This is place for Madeleine and Kemo to write about film</p>
+      </div>
+      <div class="search-form-control form-group mt-10 justify-content-left mb-4" >
+        <%= form_with url: reviews_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "find a review"
+        %>
+        <%= submit_tag "Search", class: "btn btn-secondary" %>
+        <% end %>
+      </div>
     </div>
-    <div class="search-form-control form-group mt-10 justify-content-left mb-4" >
-      <%= form_with url: reviews_path, method: :get, class: "d-flex" do %>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "find a review"
-      %>
-      <%= submit_tag "Search", class: "btn btn-secondary" %>
-      <% end %>
-    </div>
-  </div>
-</div>
+  <%# </div> %>
 
-<div class="container bg-card text-center mt-5">
-    <div class="cards">
-      <%= render "reviews/index" %>
-    </div>
+  <div class="container-fluid mt-5">
+        <%= render "reviews/index" %>
+  </div>
 </div>

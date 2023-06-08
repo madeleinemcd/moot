@@ -1,8 +1,10 @@
- <% Review.all.each do |review| %>
+
+<div class=wrapper>
+  <% Review.all.each do |review| %>
     <%= link_to review_path(review) do %>
-      <div id="<%= dom_id review %>" class="card-trip jumpcard">
-        <%=image_tag src="poster", class:"card-img-top", alt: "generic movie image", height: 300, width: 200 %>
-        <div class="card-body index-card">
+      <div id="<%= dom_id review %>" class="index-card card jumpcard">
+        <img class="card-img-top" src="<%= asset_path('poster.jpg') %>" alt="generic movie image">
+        <div class="card-body">
           <h5 class="card-title"><%= review.title %></h5>
           <h6>by <%= review.user.first_name %></h6>
           <p class="card-text"><%= review.subtitle %></p>
@@ -10,6 +12,7 @@
       </div>
     <% end %>
   <% end %>
+</div>
 
 
         <%# <% if review.photo.attached? %>
