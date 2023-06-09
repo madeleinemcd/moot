@@ -9,11 +9,11 @@
   </head>
   <body>
     <div class="topnav" id="myTopnav">
-      <%= link_to "Home", root_path, class: "nav-link#{' active' if current_page?(root_path)}" %>
+      <%= link_to "Moot", root_path, class: "nav-link#{' active' if current_page?(root_path)}" %>
       <%= link_to "About", about_path, class: "nav-link#{' active' if current_page?(about_path)}" %>
       <%= link_to "Contact", contact_path, class: "nav-link#{' active' if current_page?(contact_path)}" %>
-      <div class="search-function">
-        <div class="input-box form-group justify-content-left" >
+      <div class="search-bar" id="searchContainer">
+        <div class="input-box">
             <%= form_with url: reviews_path, method: :get, class: "d-flex" do %>
             <%= text_field_tag :query,
               params[:query],
@@ -24,6 +24,7 @@
             <% end %>
         </div>
       </div>
+      <%# <script src="/assets/javascripts/navbar.js"></script> %>
       <a href="javascript:void(0);" class="icon" onclick="responsiveMenu()">
         <i class="fa fa-bars"></i>
       </a>
