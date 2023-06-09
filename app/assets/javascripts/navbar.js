@@ -1,74 +1,3 @@
-// function responsiveMenu() {
-//   var x = document.getElementById("myTopnav");
-//   if (x.className === "topnav") {
-//     x.className += "responsive";
-//   } else {
-//     x.className = "topnav";
-//   }
-//   if (x.className === "search-function") {
-//     x.className += "responsive";
-//   } else {
-//     x.className = "search-function";
-//   }
-// }
-
-// function responsiveMenu() {
-//   var x = document.getElementById("myTopnav");
-//   var searchFunction = document.getElementById("searchFunction");
-
-//   if (x.className === "topnav") {
-//     x.className += " responsive";
-//   } else {
-//     x.className = "topnav";
-//   }
-
-//   if (searchFunction.className === "search-function") {
-//     searchFunction.className += " responsive";
-//   } else {
-//     searchFunction.className = "search-function";
-//   }
-// }
-
-//another futile try
-
-// document.addEventListener("DOMContentLoaded", function() {
-//   var searchContainer = document.getElementById("searchContainer");
-
-//   function toggleSearchBar() {
-//     searchContainer.classList.toggle("responsive");
-//   }
-
-//   function scrollFunction() {
-//     var navbar = document.getElementById("myTopnav");
-//     var sticky = navbar.offsetTop;
-
-//     if (window.pageYOffset >= sticky) {
-//       navbar.classList.add("sticky");
-//     } else {
-//       navbar.classList.remove("sticky");
-//     }
-//   }
-
-//   window.onscroll = scrollFunction;
-
-//   var icon = document.getElementById("navbarIcon");
-//   icon.addEventListener("click", toggleSearchBar);
-
-//   var navbar = document.getElementById("myTopnav");
-//   navbar.addEventListener("click", function(event) {
-//     if (!event.target.matches(".search-bar *")) {
-//       searchContainer.classList.remove("responsive");
-//     }
-//   });
-// });
-
-
-
-
-
-//this below is the *working* code
-
-
 function responsiveMenu() {
   var x = document.getElementById("myTopnav");
   var searchContainer = document.getElementById("searchContainer");
@@ -83,8 +12,6 @@ function responsiveMenu() {
     // searchContainer.style.display = "none";
   }
 }
-
-
 
 document.addEventListener("DOMContentLoaded", function() {
   // When the user scrolls the page, execute scrollFunction
