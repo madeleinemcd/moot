@@ -9,6 +9,24 @@ body {
   overflow: hidden;
 }
 
+/* Page content */
+.content {
+  padding: 16px;
+}
+
+/* The sticky class is added to the navbar with JS when it reaches its scroll position */
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+  padding-top: 60px;
+}
+
 /* Style the links inside the navigation bar */
 .topnav a {
   float: left;
@@ -22,14 +40,14 @@ body {
 
 /* Change the color of links on hover */
 .topnav a:hover {
-  background-color: $brown;
-  color: $black;
+  background-color: $mid;
+  color: $lack;
 }
 
 /* Add an active class to highlight the current page */
 .topnav a.active {
-  background-color: $blood;
-  color: $white;
+  background-color: $ray;
+  color: $hite;
 }
 
 /* Hide the link that should open and close the topnav on small screens */
@@ -38,9 +56,12 @@ body {
 }
 
 
-/* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
+/* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Moot"). Show the link that contains should open and close the topnav (.icon) */
 @media screen and (max-width: 600px) {
-  .topnav a:not(:first-child) {display: none;}
+  .topnav a:not(:first-child),
+  .search-bar {
+    display: none;
+  }
   .topnav a.icon {
     float: right;
     display: block;

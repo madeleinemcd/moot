@@ -1,0 +1,10 @@
+.comment-box {
+  background-color: $l-gold;
+  padding: 15px;
+  margin-top: 20px;
+  .form-control {
+    margin-right: 20px;
+    margin-left: 20px;
+    width: fit-content;
+  }
+}

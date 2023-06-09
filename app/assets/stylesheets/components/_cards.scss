@@ -1,48 +1,86 @@
 
-.bg-card {
-  background-color: $light-gray;
-  padding: 12px;
-}
 
 .jumpcard:hover{
   transform: scale(1.05);
-  box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+  // box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
 }
 
-.cards {
-  flex-grow: 1;
+
+.index-card {
+  background-color: $black;
+  // width: 350px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto 1fr;
   grid-gap: 16px;
   padding: 16px;
-}
+  margin: 16px;
 
-@media (min-width: 100px) and (max-width: 575px) {
-  .cards {
-    grid-template-columns: 1fr;
+  .card-image {
+      width: 100%;
+      height: 200px;
+      margin-bottom: 16px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Maintain image aspect ratio */
+    }
+  }
+
+  > a {
+    text-decoration: none!important; /* Remove text decoration for anchor tags */
+  }
+
+
+  .card-body {
+    h1, h2, h3, h4, h5, h6, p, li, a {
+      color: $white;
+      text-decoration: none!important;
+    }
   }
 }
 
+
+
+.text-dec {
+  text-decoration: none!important;
+}
+
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 16px;
+}
+
+
+@media (min-width: 100px) and (max-width: 575px) {
+.wrapper {
+  grid-template-columns: 1fr;
+}
+}
+
 @media (min-width: 576px) {
-  .cards {
+.wrapper {
     grid-template-columns: 1fr;
   }
 }
 
 @media (min-width: 768px) {
-  .cards {
+  .wrapper {
     grid-template-columns: 1fr 1fr;
   }
 }
 
 @media (min-width: 992px) {
-  .cards {
+  .wrapper {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
 @media (min-width: 1200px) {
-  .cards {
+  .wrapper {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }

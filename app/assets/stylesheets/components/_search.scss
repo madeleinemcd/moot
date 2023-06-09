@@ -1,0 +1,66 @@
+  //wrapper
+  .search-bar{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  //entire input box
+  .input-box {
+  display: flex;
+  align-items: center;
+  max-width: 240px;
+  width: 100%;
+  margin: 0 30px;
+  }
+
+  //button
+  .input-box .btn {
+  height: 2.5rem;
+  position: relative;
+  top: 4px;
+  left: -75px;
+  flex-shrink: 0;
+  }
+
+  //button styling
+  .input-box input {
+    flex-grow: 1;
+    border: 2px solid $gold;
+    padding: 5px;
+    margin: 3px;
+  }
+  //text input box
+  .input-box .form-control {
+  height: 3rem;
+  width: auto;
+  border: $rred;
+  color: $black;
+  padding-right: 68px;
+  }
+
+  //entire input box when cursor focus
+  .input-box .form-control:focus {
+  border: 2px solid $gold;
+  outline: none !important;
+  }
+
+
+  @media screen and (max-width: 600px) {
+
+    .search-bar {display:none;}
+
+    .search-bar.responsive{
+      display: block;
+      justify-content: flex-start;
+      }
+
+    .searchContainer.search-bar.responsive {
+    justify-content: left;
+    }
+
+    .search-bar.responsive .input-box {
+      margin-right: auto;
+      margin-left: 3px;
+    }
+
+  }

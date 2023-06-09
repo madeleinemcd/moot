@@ -1,22 +1,20 @@
- <% Review.all.each do |review| %>
+
+<div class=wrapper>
+  <% Review.all.each do |review| %>
     <%= link_to review_path(review) do %>
-      <div id="<%= dom_id review %>" class="card-trip jumpcard">
-        <%# <% if review.photo.attached? %>
-          <%#<%= cl_image_tag experience.photo.key, height: 300, crop: :fill%>
-        <%#<% else %>
-         <%=image_tag src="https://source.unsplash.com/random", alt: "random-image", height: 300, width: 200 %>
-        <%#<% end %>
-        <div class="card-trip-info">
-
-          <div class= "cards-infos">
-            <h4><%= review.title %></h4>
-            <h6><%= review.user.first_name %></h6>
-          </div>
-          <div>
-              <p><%= review.subtitle %></p>
-          </div>
-
+      <div id="<%= dom_id review %>" class="index-card card jumpcard">
+        <img class="card-img-top" src="<%= asset_path('poster.jpg') %>" alt="generic movie image">
+        <div class="card-body">
+          <h5 class="card-title"><%= review.title %></h5>
+          <h6>by <%= review.user.first_name %></h6>
+          <p class="card-text"><%= review.subtitle %></p>
         </div>
       </div>
     <% end %>
   <% end %>
+</div>
+
+
+        <%# <% if review.photo.attached? %>
+          <%#<%= cl_image_tag experience.photo.key, height: 300, crop: :fill%>
+        <%#<% else %>
