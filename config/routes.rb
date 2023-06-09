@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users
+  get 'welcome/index'
+  devise_for :authors
+  devise_for :admins
+  devise_for :readers
   root to: "pages#home"
   get "about", to: "pages#about"
   get "contact", to: "pages#contact"

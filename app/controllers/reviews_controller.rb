@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
   # before_action :set_review, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  # skip_before_action :authenticate_user!, only: [:index, :show]
   # before_action :set_comments, only: [:new, :create]
 
   def index
