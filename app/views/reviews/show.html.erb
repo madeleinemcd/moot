@@ -12,7 +12,12 @@
           </div>
           <div class="card-body">
             <p class="card-text">
-              <%= @review.category %>
+              <div>
+                <h6><%= @review.category %></h6>
+              </div>
+              <div>
+                <h6>by <%= @review.user.first_name %></h6>
+              </div>
               <p><%= @review.content %></p>
             </p>
               <br>
