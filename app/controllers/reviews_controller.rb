@@ -4,17 +4,29 @@ class ReviewsController < ApplicationController
   # before_action :set_comments, only: [:new, :create]
 
   def index
+    #puts message
+    puts "reached the index method"
     if params[:query].present?
       sql_query = <<~SQL
-        review.title @@ :query
-        OR review.content @@ :query
-        OR review.category @@ :query
-        OR review.subtitle @@ :query
-        OR review.subtitle @@ :query
+        reviews.title @@ :query
+        OR reviews.content @@ :query
+        OR reviews.category @@ :query
+        OR reviews.subtitle @@ :query
+        OR reviews.subtitle @@ :query
+        OR reviews.user @@ :query
       SQL
       @reviews = Review.where(sql_query, query: "%#{params[:query]}%")
+      puts "Parameters: #{params.inspect}"
+
+      #puts message
+      @reviews.each do |review|
+        puts "Review Title: #{review.title}"
+        puts "Review Content: #{review.user}"
+      end
+
     else
       @reviews = Review.all.recent
+      puts "reached the no query else statement"
     end
   end
 

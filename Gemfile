@@ -10,7 +10,7 @@ gem 'nokogiri', '~> 1.6', '>= 1.6.8'
 #friendly id
 gem 'friendly_id', '~> 5.4.0'
 
-gem "devise"
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.4"
 
@@ -64,7 +64,7 @@ group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem "dotenv-rails"
   gem 'rspec-rails', '~> 6.0.0'
-
+  gem "devise"
 end
 
 group :development do
