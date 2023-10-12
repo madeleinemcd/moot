@@ -1,9 +1,20 @@
 Rails.application.routes.draw do
-  devise_for :users
+  get 'welcome/index'
+  devise_for :authors
+  devise_for :admins
+  devise_for :readers
   root to: "pages#home"
   get "about", to: "pages#about"
   get "contact", to: "pages#contact"
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+
+  resources :reviews, except: [:destroy] do
+    resources :comments, only: [:new, :create, :destroy]
+  end
+end
+
+
+
+# Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
   # root "articles#index"
@@ -14,7 +25,3 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  resources :reviews, except: [:destroy] do
-    resources :comments, only: [:new, :create, :destroy]
-  end
-end

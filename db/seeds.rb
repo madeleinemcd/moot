@@ -10,14 +10,16 @@ kemo = User.create!(email: "kemoquaquin@gmail.com",
                     username: "momo",
                     first_name: "Kemo",
                     last_name: "Alvarez",
-                    password: "123456")
+                    password: "123456password",
+                    type: "Admin")
 
 puts "Created #{kemo.username}"
 
-dummy_data = Review.create!(title: "Star Trek",
+star_trek = Review.create!(title: "Star Trek",
                             category: "movies & tv",
                             subtitle: "The Newest Series: Flop or Final Frontier",
-                            content: "Set during the captaincy of Christopher Pike, who preceded Captain Kirk aboard the U.S.S. Enterprise, this prequel to Star Trek: The Original Series is an episodic,
+                            content:
+                            "Set during the captaincy of Christopher Pike, who preceded Captain Kirk aboard the U.S.S. Enterprise, this prequel to Star Trek: The Original Series is an episodic,
                             character-driven thrill ride where each hour pairs a top notch sociological story with some good, clean, swashbuckling fun. So much about the series just works, from its stellar
                             cast to its nostalgic but breathable grip on Trek lore, but what elevates Strange New Worlds from other streaming sci-fi is its insistence on sweetness and silliness. Keep your multiverses,
                             your convoluted tragic backstories, your hyper-serialized storytelling about the end of the universe as we know it—I’ll take my sci-fi with a heaping side of hijinks.
@@ -27,22 +29,94 @@ dummy_data = Review.create!(title: "Star Trek",
                             The franchise’s signature spirit of optimism would be diminished without them.",
                             user: kemo)
 
-   puts "#{dummy_data.id} was created"
+   puts "review for #{star_trek.title} was created"
 
-dummy_data1 = Review.create!(title: "The Mandalorian",
+the_mandalorian = Review.create!(title: "The Mandalorian",
                             content: "The Mandalorian is a Star Wars story that takes place after the fall of the Empire and before the emergence of the First Order. The series follows the travails of a lone gunfighter in the outer reaches of the galaxy far from the authority of the New Republic.",
                             category: "movies & tv",
                             subtitle: "The Mandalorian: The Best Star Wars Show Since The Clone Wars",
                             user: kemo)
-puts "#{dummy_data1.id} was created"
+puts "review for #{the_mandalorian.title} was created"
 
 
 
-comments = Comment.create!(content: "cool review",
+Comment.create!(content: "cool review",
                             c_nickname: "jane398",
-                            review: dummy_data)
+                            review: star_trek)
 
 
-comments2 = Comment.create!(content: "I love this show!",
+Comment.create!(content: "I love this show!",
                             c_nickname: "filmboy2",
-                            review: dummy_data)
+                            review: star_trek)
+
+Comment.create!(content: "sick review my man!",
+                c_nickname: "f40927",
+                review: the_mandalorian)
+
+
+# second user creation
+
+maddy = User.create!(email: "maddy@gmail.com",
+                    username: "madz",
+                    first_name: "mikkle",
+                    last_name: "Alvarez",
+                    password: "itsapassword1",
+                    type: "Admin")
+
+puts "Created #{maddy.username}"
+
+tar = Review.create!(title: "tar",
+                    category: "movies & tv",
+                    subtitle: "A woman alone",
+                    content:
+                    "No one but Blanchett could have delivered the imperious hauteur necessary for portraying
+                    a great musician heading for a crackup or a creative epiphany. No one but Blanchett has the
+                    right way of wearing a two-piece black suit with an open-necked white shirt, the way of shaking
+                    her hair loose at moments of abandon, the way of letting her face become a Tutankhamun mask of
+                    contempt. Her performance will pierce you like a conductor’s baton through the heart – although
+                    the real-life conductor Marin Alsop, music director of the Baltimore Symphony Orchestra, has
+                    complained about the apparent parallels between her own life and Tár’s, and there has never
+                    been any suggestion of wrongdoing in Alsop’s own career.",
+                    user: maddy)
+
+puts "review for #{tar.title} was created"
+
+the_whale = Review.create!(title: "The Whale",
+                    content:
+                    "After watching The Whale, observing its reverent reception at the Venice
+                    film festival and beyond, and following Aronofsky’s ongoing press tour in
+                    which he repeatedly insists that his film is in service to fat people, generously
+                    “humanising” us, I have to say: wow, ha ha, OK, no.",
+                    category: "movies & tv",
+                    subtitle: "worst award bait ever",
+                    user: maddy)
+puts "review for #{the_whale.title} was created"
+
+
+Comment.create!(content: "I agree- terrible movie",
+                c_nickname: "emmybait",
+                review: the_whale)
+
+Comment.create!(content: "depressing",
+                c_nickname: "emmybait",
+                review: the_whale)
+
+
+Comment.create!(content: "As a professional fat person I can tell you that people in general are incapable of seeing any fat person as an individual, and as a professional film critic I can tell you that if The Whale didn’t reflect and validate society’s real opinion of fat people, there’s no way society would like The Whale this much. There’s very little entertainment in it. It is not fun or funny or sweet
+                or deep or beautifully written or illuminating. It sucks to watch and it is very, very silly.",
+                c_nickname: "whalewatcher",
+                review: the_whale)
+
+Comment.create!(content: "The Whale is not a real fat person telling their own raw story with all the complexities and contradictions of lived experience. Charlie is a fictional character created by a thin person, a fantasy of fat squalor, a confirmation that we “do this” to ourselves: that we gorge buckets of chicken like mindless beasts, that we never see the world,
+                never let the sun warm our bodies, never step into the sea, never make art, never feel human touch, never truly live. Portrayals like this steal from us in two directions: we are denied both the freedom to enjoy food and to have complicated relationships with it. I suppose my criticism boils down to this: a fat person, even one with a life identical to Charlie’s,
+                could never have made The Whale. It is fundamentally not of us and therefore incurably untrue.",
+                c_nickname: "F-1-49",
+                review: the_whale)
+
+Comment.create!(content: "she has cool fits tho",
+                c_nickname: "kaleP",
+                review: tar)
+
+Comment.create!(content: "what about the ending though",
+                c_nickname: "drew",
+                review: tar)

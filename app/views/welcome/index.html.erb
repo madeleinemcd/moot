@@ -1,0 +1,14 @@
+
+<% if author_signed_in? %>
+ <p>Get ready to offer your services</p>
+ <%= link_to 'Log out', destroy_author_session_path, method: :delete %>
+<% elsif admin_signed_in? %>
+ <p>How would you like to wield your admin powers today?</p>
+ <%= link_to 'Log out', destroy_admin_session_path, method: :delete %>
+ <% elsif reader_signed_in? %>
+ <p>Now you can comment!?</p>
+ <%= link_to 'Log out', destroy_reader_session_path, method: :delete %>
+<% end %>
+
+<h1>Welcome#index</h1>
+<p>Find me in app/views/welcome/index.html.erb</p>
