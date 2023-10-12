@@ -36,8 +36,7 @@ RSpec.describe ReviewsController, type: :controller do
     # # Simulate a request to the root path
     get :index
 
-    # Fill in the search form with a query (assuming your form's field name is 'query')
-
+    # Fill in the search form with a query
     post :index, params: { query: 'Sample Review 1' }
 
     # Check if the search results page contains the expected content

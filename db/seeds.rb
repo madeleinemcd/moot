@@ -18,7 +18,8 @@ puts "Created #{kemo.username}"
 star_trek = Review.create!(title: "Star Trek",
                             category: "movies & tv",
                             subtitle: "The Newest Series: Flop or Final Frontier",
-                            content: "Set during the captaincy of Christopher Pike, who preceded Captain Kirk aboard the U.S.S. Enterprise, this prequel to Star Trek: The Original Series is an episodic,
+                            content:
+                            "Set during the captaincy of Christopher Pike, who preceded Captain Kirk aboard the U.S.S. Enterprise, this prequel to Star Trek: The Original Series is an episodic,
                             character-driven thrill ride where each hour pairs a top notch sociological story with some good, clean, swashbuckling fun. So much about the series just works, from its stellar
                             cast to its nostalgic but breathable grip on Trek lore, but what elevates Strange New Worlds from other streaming sci-fi is its insistence on sweetness and silliness. Keep your multiverses,
                             your convoluted tragic backstories, your hyper-serialized storytelling about the end of the universe as we know it—I’ll take my sci-fi with a heaping side of hijinks.
@@ -67,21 +68,25 @@ puts "Created #{maddy.username}"
 tar = Review.create!(title: "tar",
                     category: "movies & tv",
                     subtitle: "A woman alone",
-                    content: "Set during the captaincy of Christopher Pike, who preceded Captain Kirk aboard the U.S.S. Enterprise, this prequel to Star Trek: The Original Series is an episodic,
-                    character-driven thrill ride where each hour pairs a top notch sociological story with some good, clean, swashbuckling fun. So much about the series just works, from its stellar
-                    cast to its nostalgic but breathable grip on Trek lore, but what elevates Strange New Worlds from other streaming sci-fi is its insistence on sweetness and silliness. Keep your multiverses,
-                    your convoluted tragic backstories, your hyper-serialized storytelling about the end of the universe as we know it—I’ll take my sci-fi with a heaping side of hijinks.
-                    It’s important to note that hijinks are an integral part of Star Trek’s DNA. For all its visionary ideas about collectivism, justice, and inclusivity, Star Trek has always been
-                    a deeply silly sandbox where Starfleet officers tumble into campy misadventures in between all the phaser fire. Who could forget the iconic Original Series episode when the Enterprise is overrun with furry, fast-procreating tribbles,
-                    or the Voyager banger where aliens mistake a virtual reality show for real life? These aren’t mere throwaway episodes—they’re earnest, empathetic, slice-of-life stories that air out the drafty starships with some much-needed sunlight.
-                    The franchise’s signature spirit of optimism would be diminished without them.",
+                    content:
+                    "No one but Blanchett could have delivered the imperious hauteur necessary for portraying
+                    a great musician heading for a crackup or a creative epiphany. No one but Blanchett has the
+                    right way of wearing a two-piece black suit with an open-necked white shirt, the way of shaking
+                    her hair loose at moments of abandon, the way of letting her face become a Tutankhamun mask of
+                    contempt. Her performance will pierce you like a conductor’s baton through the heart – although
+                    the real-life conductor Marin Alsop, music director of the Baltimore Symphony Orchestra, has
+                    complained about the apparent parallels between her own life and Tár’s, and there has never
+                    been any suggestion of wrongdoing in Alsop’s own career.",
                     user: maddy)
 
 puts "review for #{tar.title} was created"
 
 the_whale = Review.create!(title: "The Whale",
-                    content: "After watching The Whale, observing its reverent reception at the Venice
-                    film festival and beyond, and following Aronofsky’s ongoing press tour in which he repeatedly insists that his film is in service to fat people, generously “humanising” us, I have to say: wow, ha ha, OK, no.",
+                    content:
+                    "After watching The Whale, observing its reverent reception at the Venice
+                    film festival and beyond, and following Aronofsky’s ongoing press tour in
+                    which he repeatedly insists that his film is in service to fat people, generously
+                    “humanising” us, I have to say: wow, ha ha, OK, no.",
                     category: "movies & tv",
                     subtitle: "worst award bait ever",
                     user: maddy)
