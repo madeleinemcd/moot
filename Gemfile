@@ -6,6 +6,7 @@ ruby "3.1.2"
 gem 'nokogiri', '~> 1.6', '>= 1.6.8'
 
 
+gem 'pry-rails'
 
 #friendly id
 gem 'friendly_id', '~> 5.4.0'
