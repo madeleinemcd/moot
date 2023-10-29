@@ -82,14 +82,14 @@ tar = Review.create!(title: "tar",
 puts "review for #{tar.title} was created"
 
 the_whale = Review.create!(title: "The Whale",
-                    content:
-                    "After watching The Whale, observing its reverent reception at the Venice
-                    film festival and beyond, and following Aronofsky’s ongoing press tour in
-                    which he repeatedly insists that his film is in service to fat people, generously
-                    “humanising” us, I have to say: wow, ha ha, OK, no.",
-                    category: "movies & tv",
-                    subtitle: "worst award bait ever",
-                    user: maddy)
+                          content:
+                          "After watching The Whale, observing its reverent reception at the Venice
+                          film festival and beyond, and following Aronofsky’s ongoing press tour in
+                          which he repeatedly insists that his film is in service to fat people, generously
+                          “humanising” us, I have to say: wow, ha ha, OK, no.",
+                          category: "movies & tv",
+                          subtitle: "worst award bait ever",
+                          user: maddy)
 puts "review for #{the_whale.title} was created"
 
 

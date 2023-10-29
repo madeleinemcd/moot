@@ -1,8 +1,7 @@
 require 'rails_helper'
-require 'devise'
 
 RSpec.describe ReviewsController, type: :controller do
-  include Devise::Test::IntegrationHelpers
+  render_views
 
   before do
     # Create a sample user and some sample reviews in the database
@@ -10,7 +9,7 @@ RSpec.describe ReviewsController, type: :controller do
                         username: 'user',
                         password: 'password1',
                         first_name: 'User',
-                        last_name: 'User',
+                        last_name: 'TestUser',
                         type: 'Admin')
     @review1 = Review.create!(title: 'Sample Review 1',
                               subtitle:'review 1 subtitle',
@@ -23,29 +22,28 @@ RSpec.describe ReviewsController, type: :controller do
                               category: 'movies & tv',
                               user: @user)
 
-    sign_in @user
+    sign_in @user, scope: :admin
 
   end
 
   it 'allows the user to search for a review' do
-    # controller = ReviewsController.new
 
     # Stub the database query to return expected results for the search
     # allow(Review).to receive(:where).and_return([@review1])
 
-    # # Simulate a request to the root path
-    get :index
 
     # Fill in the search form with a query
-    post :index, params: { query: 'Sample Review 1' }
+    get :index, params: { query: 'Sample Review 1' }
 
+    # require 'pry';
+    # binding.pry
     # Check if the search results page contains the expected content
-    expect(response).to have_content('Sample Review 1')
-    expect(response).to have_content(@review1.content)
+    expect(response.body).to have_content('Sample Review 1')
+    expect(response.body).to have_content(@review1.content)
 
     # Check that the other review is not present
-    expect(response).not_to have_content('Sample Review 2')
-    expect(response).not_to have_content(@review2.content)
+    expect(response.body).not_to have_content('Sample Review 2')
+    expect(response.body).not_to have_content(@review2.content)
   end
 end
 

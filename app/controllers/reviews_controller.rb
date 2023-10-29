@@ -5,28 +5,21 @@ class ReviewsController < ApplicationController
 
   def index
     #puts message
-    puts "reached the index method"
+    # Rails.logger.info "reached the index method"
     if params[:query].present?
       sql_query = <<~SQL
         reviews.title @@ :query
         OR reviews.content @@ :query
         OR reviews.category @@ :query
         OR reviews.subtitle @@ :query
-        OR reviews.subtitle @@ :query
-        OR reviews.user @@ :query
+        OR users.username @@ :query
+        OR users.first_name @@ :query
+        OR users.last_name @@ :query
       SQL
-      @reviews = Review.where(sql_query, query: "%#{params[:query]}%")
-      puts "Parameters: #{params.inspect}"
-
-      #puts message
-      @reviews.each do |review|
-        puts "Review Title: #{review.title}"
-        puts "Review Content: #{review.user}"
-      end
+      @reviews = Review.joins(:user).where(sql_query, query: "%#{params[:query]}%")
 
     else
       @reviews = Review.all.recent
-      puts "reached the no query else statement"
     end
   end
 
